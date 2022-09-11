@@ -10,14 +10,8 @@ func removeUnderscore(_ string: String) -> String {
 }
 
 func extractNumber() -> String{
-    let string = "My Wallet (SAR 1,685,633.00)"
-    var result = ""
-    for item in string {
-        if item.isNumber || item == "." || item == ","{
-            result.append(item)
-        }
-    }
-    return result
+   let string = "My Wallet (SAR 1,685,633.00)"
+    return string.replacingOccurrences(of: "[{([a-zA-z] )}]", with: "", options: .regularExpression)
 }
 
 print(extractNumber())
